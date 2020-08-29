@@ -1,0 +1,5 @@
+type: module
+name: ELMCIP person
+description: ELMCIP person records module
+package: ELMCIP
+core_version_requirement: ^8 || ^9

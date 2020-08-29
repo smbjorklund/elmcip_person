@@ -1,18 +1,19 @@
 <?php declare(strict_types=1);
 
+namespace Drupal\elmcip_person\Form;
 
-final class elmcip_person {
+final class Person {
 
-  private $first_name;
-  private $middle_name;
-  private $last_name;
+  private $firstName;
+  private $middleName;
+  private $lastName;
 
-  public function __construct($first_name,
-                              $middle_name,
-                              $last_name) {
-    $this->last_name = $last_name;
-    $this->first_name = $first_name;
-    $this->middle_name = $middle_name;
+  public function __construct($firstName,
+                              $middleName,
+                              $lastName) {
+    $this->firstName = $firstName;
+    $this->middleName = $middleName;
+    $this->lastName = $lastName;
   }
 
   private function trim($content): string {
@@ -32,15 +33,15 @@ final class elmcip_person {
   }
 
   private function first_name(): string {
-    return $this->add_space($this->trim($this->first_name));
+    return $this->add_space($this->trim($this->firstName));
   }
 
   private function middle_name(): string {
-    return $this->add_space($this->trim($this->middle_name));
+    return $this->add_space($this->trim($this->middleName));
  }
 
   private function last_name(): string {
-    return $this->trim($this->last_name);
+    return $this->trim($this->lastName);
   }
 
   public function person_title(): string {
