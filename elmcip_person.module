@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
 use Drupal\elmcip_person\Form\Person;
-use \Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_entity_presave().
@@ -16,11 +15,14 @@ function elmcip_person_entity_presave(Drupal\Core\Entity\EntityInterface $entity
       $entity->field_last_name->value);
     $entity->title = $person->person_title();
   }
-
 }
 
 /**
  * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
  */
 function elmcip_person_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_person_form') {
