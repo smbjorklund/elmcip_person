@@ -1,5 +1,5 @@
 {
-    "name": "drupal/elmcip_person",
+    "name": "steinmb/elmcip_person",
     "type": "drupal-module",
     "description": "Provides ELMCIP Person functionality validating and hiding node title.",
     "homepage": "https://github.org/steinmb/elmcip_person",
