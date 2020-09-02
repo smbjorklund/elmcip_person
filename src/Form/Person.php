@@ -2,6 +2,8 @@
 
 namespace Drupal\elmcip_person\Form;
 
+use InvalidArgumentException;
+
 final class Person {
 
   private $firstName;
@@ -13,6 +15,11 @@ final class Person {
                               $lastName) {
     $this->firstName = $firstName;
     $this->middleName = $middleName;
+
+    if (!$lastName) {
+      throw new InvalidArgumentException('Cannot create a person without a last name');
+    }
+
     $this->lastName = $lastName;
   }
 

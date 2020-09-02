@@ -4,18 +4,19 @@ namespace Drupal\Tests\elmcip_person\Unit;
 
 use Drupal\Tests\UnitTestCase;
 use Drupal\elmcip_person\Form\Person;
+use InvalidArgumentException;
 
 /**
  * Tests ELMCIP Person name methods.
  *
  * @group elmcip_person
  */
-class PersonNameTest extends UnitTestCase {
+final class PersonNameTest extends UnitTestCase {
 
   /**
    * Test first, middle and last name form.
    */
-  public function testFullName()
+  public function testFullName(): void
   {
     $person = new Person('James', 'Magnus', 'Doe');
     $expectedResult = 'James Magnus Doe';
@@ -28,7 +29,7 @@ class PersonNameTest extends UnitTestCase {
   /**
    * Test person with only a last name.
    */
-  public function testOnlyLastName()
+  public function testOnlyLastName(): void
   {
     $expectedResult = 'Doe';
     $person = new Person('', '', 'Doe');
@@ -41,11 +42,20 @@ class PersonNameTest extends UnitTestCase {
   /**
    * Test person with a first and last name.
    */
-  public function testFirstName()
+  public function testFirstName(): void
   {
     $expectedResult = 'James Doe';
     $person = new Person('James', NULL, 'Doe');
     $this->assertEquals($expectedResult, $person->person_title());
+  }
+
+  /**
+   * Test person exceptions.
+   */
+  public function testExceptions(): void
+  {
+    $this->expectException(InvalidArgumentException::class);
+    new Person('James', NULL, '');
   }
 
 }
