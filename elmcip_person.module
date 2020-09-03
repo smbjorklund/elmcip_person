@@ -18,15 +18,24 @@ function elmcip_person_entity_presave(Drupal\Core\Entity\EntityInterface $entity
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter.
  *
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $form_id
  */
-function elmcip_person_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form_id === 'node_person_form') {
-    $form['title']['#type'] = 'hidden';
-    $form['title']['#default_value'] = 'ELMCIP auto generated - dummy';
-  }
+function elmcip_person_form_node_person_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['title']['#type'] = 'hidden';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function elmcip_person_form_node_person_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form["title"]["widget"][0]["value"]["#default_value"] = 'ELMCIP auto generated title';
+  $form['title']['#type'] = 'hidden';
 }
