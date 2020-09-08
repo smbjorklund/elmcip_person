@@ -1,8 +1,8 @@
 {
-    "name": "steinmb/elmcip_person",
+    "name": "smbjorklund/elmcip_person",
     "type": "drupal-module",
     "description": "Provides ELMCIP Person functionality validating and hiding node title.",
-    "homepage": "https://github.org/steinmb/elmcip_person",
+    "homepage": "https://github.org/smbjorklund/elmcip_person",
     "license": "GPL-2.0+",
     "require": {
         "drupal/core": "^8.7.7 || ^9"
